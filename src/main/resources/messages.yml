@@ -1,0 +1,34 @@
+# ============================================================
+#  SpruceSettings - messages.yml
+#
+#  Every player-facing string lives here. MiniMessage format:
+#  https://docs.advntr.dev/minimessage/format.html
+#  <prefix> works in any message below.
+# ============================================================
+
+prefix: "<gradient:#5ee7a0:#2f9e63><bold>SpruceSettings</bold></gradient> <dark_gray>»</dark_gray>"
+
+# ---- GUI ----
+gui-title: "<dark_gray>Your settings</dark_gray>"
+gui-state-on: "<green>● Currently ON</green>"
+gui-state-off: "<red>● Currently OFF</red>"
+gui-click-hint: "<dark_gray>Click to change</dark_gray>"
+
+# ---- toggle feedback ----
+toggle-enabled: "<prefix> <white><toggle></white> <green>enabled</green><gray>.</gray>"
+toggle-disabled: "<prefix> <white><toggle></white> <red>disabled</red><gray>.</gray>"
+
+# ---- pvp opt-out ----
+# <seconds> is the whole seconds remaining before protection may be enabled.
+pvp-blocked-in-combat: "<prefix> <red>You cannot enable PvP protection during combat.</red> <gray>Try again in <white><seconds></white>s.</gray>"
+
+# ---- admin ----
+usage-settingsadmin: "<prefix> <gray>Usage: <white>/settingsadmin reload</white> or <white>/settingsadmin reset <player></white></gray>"
+reload-success: "<prefix> <green>Configuration and messages reloaded.</green>"
+reload-failed: "<prefix> <red>Reload failed — see the server console for the parse error.</red>"
+reset-success: "<prefix> <green>Cleared all settings for <white><target></white>.</green>"
+
+# ---- generic ----
+players-only: "<prefix> <red>Only a player can do that.</red>"
+no-permission: "<prefix> <red>You do not have permission to change that setting.</red>"
+player-not-found: "<prefix> <red>Player '<white><target></white>' was not found online.</red>"

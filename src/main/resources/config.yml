@@ -1,0 +1,29 @@
+# ============================================================
+#  SpruceSettings - config.yml
+#
+#  Reload at runtime with /settingsadmin reload (no server restart required).
+# ============================================================
+
+# Print extra diagnostic output to the console.
+debug: false
+
+# Anonymous usage statistics via bStats (https://bstats.org).
+# Set to false to opt out for this plugin only.
+metrics: true
+
+pvp-opt-out:
+  # MASTER SWITCH for the PvP protection toggle.
+  # false removes the toggle from the GUI entirely — not merely permission-gated.
+  # Many servers consider player-controlled PvP immunity game-breaking, so it
+  # must be possible to remove the feature outright.
+  enabled: true
+
+  # Seconds after taking player damage during which protection CANNOT be
+  # switched on. Without this, a losing player opens /settings mid-fight and
+  # walks away untouched.
+  #
+  # Turning protection OFF is never blocked — that only makes a player more
+  # vulnerable, so there is nothing to exploit.
+  #
+  # Set to 0 to disable the combat gate entirely (NOT recommended on a PvP server).
+  combat-window-seconds: 15

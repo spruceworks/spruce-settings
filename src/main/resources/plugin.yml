@@ -1,0 +1,19 @@
+name: SpruceSettings
+version: '${version}'
+main: dev.spruceworks.settings.SpruceSettingsPlugin
+api-version: '26.2'
+description: Per-player settings GUI with a public toggle API for other plugins.
+authors: [SpruceWorks]
+website: https://github.com/spruceworks/spruce-settings
+softdepend: [PlaceholderAPI]
+
+permissions:
+  sprucesettings.use:
+    description: Allows opening /settings.
+    default: true
+  sprucesettings.admin:
+    description: Allows /settingsadmin (reload, reset).
+    default: op
+  sprucesettings.toggle.pvp:
+    description: Allows using the PvP protection toggle, when the feature is enabled in config.
+    default: true
