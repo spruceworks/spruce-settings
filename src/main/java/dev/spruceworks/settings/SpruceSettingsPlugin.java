@@ -23,8 +23,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SpruceSettingsPlugin extends JavaPlugin {
 
-    /** bStats service id — register this plugin at https://bstats.org and set the real id before release. */
-    private static final int BSTATS_SERVICE_ID = 0;
+    /** bStats service id — https://bstats.org/plugin/bukkit/SpruceSettings/32935 */
+    private static final int BSTATS_SERVICE_ID = 32935;
     private static final long COMBAT_SWEEP_PERIOD_TICKS = 20L * 60 * 5; // 5 minutes
 
     private ConfigManager configManager;

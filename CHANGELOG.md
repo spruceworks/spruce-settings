@@ -32,5 +32,5 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Notes
 
-- bStats service id is still the `0` placeholder — metrics are disabled until a
-  real id is registered. See the release checklist in README.md.
+- bStats service id `32935`, relocated to `dev.spruceworks.settings.libs.bstats`.
+  Server owners can opt out with `metrics: false` in `config.yml`.

@@ -145,8 +145,8 @@ The `run/` directory is disposable and gitignored.
 
 1. Bump `version` in `build.gradle.kts` (semantic versioning).
 2. Update `CHANGELOG.md`.
-3. Register a real bStats service id at [bstats.org](https://bstats.org) and set
-   `SpruceSettingsPlugin.BSTATS_SERVICE_ID` (currently `0` = disabled).
+3. bStats service id is registered and compiled in (`32935`). Server owners can
+   opt out with `metrics: false` in `config.yml`.
 4. `./gradlew build`, then boot on the latest Paper build and check the console.
 5. Verify `git ls-files -s gradlew` reads `100755`, not `100644`.
 6. Strategy-session code review before any marketplace listing.
