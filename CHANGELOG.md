@@ -4,7 +4,7 @@ All notable changes to this project are documented in this file. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-09-06
 
 ### Packaging
 
@@ -13,6 +13,13 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   first start after installing needs outbound access to Maven Central.
 - Scheduler access moved to Paper's region-aware schedulers. No behaviour
   change on Paper; a prerequisite for Folia, which is not yet claimed.
+
+### Verified before release
+
+- Cold boot on a clean Paper 26.2 with an empty `libraries/`: driver
+  downloaded, plugin enabled, 4 toggles registered, no warnings.
+- Bot suite: chat-hide and rejoin-persistence PASS; the two PvP scenarios
+  are UNRELIABLE to automate (bots cannot fight) and stay human-QA items.
 
 ### Added
 
