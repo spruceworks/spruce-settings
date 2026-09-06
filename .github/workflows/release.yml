@@ -1,0 +1,35 @@
+name: release
+
+# Publishing runs ONLY from a signed tag that Huy creates. Never on merge.
+#
+#   git tag -s v1.0.0 -m "SpruceSettings 1.0.0"
+#   git push origin v1.0.0
+#
+# No marketplace target is configured yet (no Modrinth project, no Hangar
+# project), so a tag currently produces: every gate, the GitHub Release with
+# the gated jar, and the Discord announcement. Add `modrinth-project-id` /
+# `hangar-slug` when those listings exist. SpigotMC stays manual.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: Run every gate, publish nothing
+        type: boolean
+        default: true
+
+# The shared pipeline creates the GitHub Release; that needs contents: write,
+# which a reusable workflow can only use if the caller grants it.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: spruceworks/release-pipeline/.github/workflows/release.yml@main
+    with:
+      plugin-name: SpruceSettings
+      max-jar-bytes: 10485760          # 10 MB — we ship ~78 KB
+      dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry-run || false }}
+    secrets: inherit
