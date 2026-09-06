@@ -7,6 +7,13 @@ authors: [SpruceWorks]
 website: https://github.com/spruceworks/spruce-settings
 softdepend: [PlaceholderAPI]
 
+# Fetched by Paper's library loader on first start, not bundled — bundling it
+# adds ~24 MB of per-platform native binaries and breaks marketplace upload
+# limits. The first start after installing needs outbound access to Maven
+# Central; the driver is then cached under the server's libraries/ folder.
+libraries:
+  - org.xerial:sqlite-jdbc:${sqliteJdbcVersion}
+
 permissions:
   sprucesettings.use:
     description: Allows opening /settings.

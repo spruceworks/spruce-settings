@@ -6,6 +6,14 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Packaging
+
+- The SQLite driver is fetched by Paper's library loader (`plugin.yml`
+  `libraries:`) instead of being shaded: jar 14.4 MB → well under 200 KB. The
+  first start after installing needs outbound access to Maven Central.
+- Scheduler access moved to Paper's region-aware schedulers. No behaviour
+  change on Paper; a prerequisite for Folia, which is not yet claimed.
+
 ### Added
 
 - Initial v1.0 implementation per SPEC-settings.md: `/settings` GUI with

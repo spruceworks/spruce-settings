@@ -16,6 +16,14 @@ is the point of this plugin as much as the built-in toggles are.
 
 No economy, no database server, no hard dependencies.
 
+**Outbound internet access on the first start after installing.** The SQLite
+driver is not bundled — it is declared in `plugin.yml`'s `libraries:` block and
+Paper downloads it from Maven Central the first time the plugin loads, then
+caches it in your server's `libraries/` folder; every later start works
+offline. This keeps the download tiny instead of ~14 MB. Air-gapped box: fetch
+`org.xerial:sqlite-jdbc:3.49.1.0` once elsewhere and place the jar at
+`libraries/org/xerial/sqlite-jdbc/3.49.1.0/`.
+
 ## Built-in toggles
 
 | Toggle | What it does |

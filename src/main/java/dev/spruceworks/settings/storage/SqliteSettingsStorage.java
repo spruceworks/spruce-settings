@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 public final class SqliteSettingsStorage implements SettingsStorage {
 
     private static final int SCHEMA_VERSION = 1;
+    private static final String DRIVER_CLASS = "org.sqlite.JDBC";
 
     private final File dataFolder;
     private final Logger logger;
@@ -34,6 +35,19 @@ public final class SqliteSettingsStorage implements SettingsStorage {
 
     @Override
     public synchronized void open() {
+        // The driver comes from plugin.yml's libraries: block, not the jar, so it
+        // keeps its real package name and an explicit load is safe. DriverManager's
+        // own ServiceLoader scan is bound to the thread context classloader, which
+        // is not guaranteed to be the one holding plugin libraries during enable —
+        // and an explicit load turns a failed download into one clear message.
+        try {
+            Class.forName(DRIVER_CLASS);
+        } catch (ClassNotFoundException e) {
+            throw new StorageException("SQLite driver " + DRIVER_CLASS + " is not on the classpath. It is"
+                    + " downloaded at startup via the libraries: block in plugin.yml — check that the"
+                    + " server had outbound access to Maven Central on its first start after installing"
+                    + " SpruceSettings.", e);
+        }
         try {
             if (!this.dataFolder.exists() && !this.dataFolder.mkdirs()) {
                 throw new StorageException("Could not create the plugin data folder: " + this.dataFolder);
